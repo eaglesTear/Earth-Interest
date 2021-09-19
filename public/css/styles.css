@@ -1,0 +1,306 @@
+/* General styles */
+*,
+.country-title {
+    font-family: 'Gurajada', Helvetica, serif;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: #19456b;
+    margin-top: 6%;
+}
+
+/* Backgrounds */
+body,
+.go.btn,
+select,
+nav,
+nav a:link,
+.filter-option {
+    color: #19456B;
+}
+
+.bg-home {
+    background-image: url('/images/svg/world-map-2.png');
+}
+
+.bg-country,
+.bg-country2 {
+    background-image: url('/images/svg/world-map.png');
+}
+
+body,
+.bg-home,
+.bg-country,
+.bg-country2 {
+    background-size: cover;
+}
+
+/* Navigation menu */
+nav {
+    background-color: #E1DBB6;
+    justify-content: space-between;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+nav,
+.nav-left,
+.flex-container {
+    align-items: center;
+    display: flex;
+}
+
+nav,
+nav a:link,
+.filter-option,
+.go-btn {
+    font-weight: 700;
+}
+
+nav a:visited {
+    color: #000;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #9FA8E1;
+}
+
+.brand {
+    margin-left: 40px;
+    width: 55px;
+}
+
+.brand,
+.main-image {
+    height: auto;
+}
+
+.brand,
+.go-btn {
+    padding: 10px;
+}
+
+.nav-right {
+    margin-right: 45px;
+}
+
+.nav-title {
+    margin: 0 0.7rem;
+}
+
+.nav-title,
+h3,
+.go-btn {
+    font-size: 2.4rem;
+}
+
+.nav-links {
+    margin: 0 1rem;
+}
+
+/* Main page bodies */
+.flex-container {
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+}
+
+h1,
+h3,
+.countries2-flex-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 5.5rem;
+    margin-top: 4%;
+}
+
+h3 {
+    margin-top: 1%;
+}
+
+/* More Data page title */
+.extras-header {
+    font-size: 4.2rem;
+}
+
+p {
+    font-size: 1.6rem;
+    margin-top: 1.6%;
+}
+
+.country-title {
+    font-size: 3.5rem;
+}
+
+.main-img,
+.btn-group,
+.bootstrap-select,
+.go-btn,
+.country-data-list-1,
+.country-data-list-2 {
+    margin: 1rem;
+}
+
+/* Large earth image on the two main pages */
+.main-img {
+    animation: turn 30s linear infinite;
+    perspective: 1000px;
+    width: 20%;
+}
+
+.main-img:hover {
+    animation-play-state: paused;
+}
+
+/* Earth spinning animation */
+@keyframes turn {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Lists containing country data */
+ul {
+    margin: 2.5% 1.8%;
+}
+
+/* Dropdown select list styles */
+li {
+    padding: 2px;
+}
+
+.country-data-list-1 {
+    background: url('/images/svg/placeholder.svg') no-repeat left top;
+    list-style-type: none;
+    padding-left: 40px;
+}
+
+.country-data-list-2 {
+    list-style-type: none;
+}
+
+.country-data-list-1,
+.country-data-list-2,
+.filter-option,
+.go-btn {
+    font-size: 1.8rem;
+}
+
+/* Styles the bullet points for each returned data type */
+.country-data-list-2::before {
+    background-size: 30px 20px;
+    background: url('/images/svg/placeholder.svg') no-repeat;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 30px;
+}
+
+.search-again-text {
+    font-size: 1.3rem;
+}
+
+/* Main country search button, incorporating an arrow image in its design */
+.go-btn {
+    -moz-box-shadow: 0 8px 6px -6px #000;
+    -webkit-box-shadow: 0 8px 6px -6px #000;
+    background-position: left;
+    background: #51759F url('/images/svg/right-arrow.svg') no-repeat;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 8px 6px -6px #000;
+    cursor: pointer;
+    margin-left: 60px;
+    transition: all 1s;
+    width: 190px;
+}
+
+.go-btn:hover,
+.go-btn:focus {
+    background-position: right;
+}
+
+.go-btn:hover,
+.go-btn:focus,
+.wiki:link:hover {
+    color: #CEE6B4;
+}
+
+/* More Data & country2 page */
+.countries2-flex-container {
+    display: block;
+}
+
+/* Wiki link for chosen country that features on country2 page */ 
+.wiki:link {
+    background-color: #000;
+    border-radius: 10px;
+    color: #CEE6B4;
+    padding: 3px 10px;
+}
+
+.wiki:link:hover {
+    color: #1E90FF;
+}
+
+.wiki:link:active {
+    color: #FFF;
+}
+
+nav a:hover,
+nav a:focus,
+.wiki:link {
+    text-decoration: none;
+}
+
+.nav-links,
+li,
+.wiki:link,
+.provinces {
+    font-size: 1.6rem;
+}
+
+.bg-country,
+.bg-country2,
+.wiki:visited {
+    color: #E1D89F;
+}
+
+nav a:active,
+.wiki:active,
+.go-btn {
+    color: #FFF;
+}
+
+.provinces-header,
+.countries2-flex-container {
+    margin-top: 2%;
+}
+
+/* List of provinces for chosen country on country2 page */
+.provinces {
+    padding: 3.5%;
+}
+
+/* Keep dropdown select aligned left despite flex settings */
+.align-dropdown {
+    text-align: left;
+}
+
+.form-margin {
+    margin-top: 1%;
+}
+
+footer {
+    font-size: 1.125rem;
+}

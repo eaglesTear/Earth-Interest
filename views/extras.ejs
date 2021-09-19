@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<!-- This app uses bootstrap-select to help style the dropdowns -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>More Country Data</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gurajada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/svg/earth-realistic.png">
+</head>
+
+<body class="bg-home">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="/">
+                <img src="images/svg/earth-realistic.png" class="brand" alt="Earth icon">
+            </a>
+            <h1 class="nav-title">Earth Interest</h1>
+        </div>
+        <div class="nav-right">
+            <a href="/" class="nav-links">Home</a>
+            <a href="/extras" class="nav-links">More Data</a>
+        </div>
+    </nav>
+
+    <!-- Main section informing user of what data can be accessed via this page -->
+    <section class="flex-container">
+
+        <h3 class="extras-header">Looking for More?</h3>
+        <p>Discover populations, timezones, provinces and even a Wiki link for your chosen country!</p>
+
+        <!-- Search via select menu dropdown. JS used to loop through all available countries in node package object and insert them into the list -->
+        <form action="/extras" method="POST">
+            <select class="selectpicker" data-live-search="true" name="userInput2" required autofocus>
+                <!-- npm package contains unexplained 'undefined' data in json: skip these with loop 'continue' if undefined data is found -->
+                <% for (i = 0; i < allCountriesList2.length; i++) { %>
+                <% if (allCountriesList2[i].name === undefined) { %>
+                <% continue; %>
+                <% } %>
+                <!-- Output the name of all countries within node package -->
+                <option value="<%= allCountriesList2[i].name %>"> <%= allCountriesList2[i].name %> </option>
+                <% } %>
+            </select>
+            <button class="go-btn"><span>Discover</span></button>
+        </form>
+
+        <footer>
+            Copyright &copy; Earth Interest
+        </footer>
+
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
+
+</body>
+
+</html>

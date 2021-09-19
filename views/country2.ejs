@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<!-- This app uses bootstrap-select to help style the dropdowns -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Name of user-selected country is displayed as the tab title -->
+    <title><%= countryUpperCase %></title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gurajada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/svg/earth-realistic.png">
+</head>
+
+<body class="bg-country2">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="/">
+                <img src="images/svg/earth-realistic.png" class="brand" alt="Earth icon">
+            </a>
+            <h1 class="nav-title">Earth Interest</h1>
+        </div>
+        <div class="nav-right">
+            <a href="/" class="nav-links">Home</a>
+            <a href="/extras" class="nav-links">More Data</a>
+        </div>
+    </nav>
+
+    <!-- Country title displayed in uppercase -->
+    <h1 class="country-title"> <%= countryUpperCase %> </h1>
+
+    <!-- Main section where country data is returned into browser -->
+    <section class="flex-container countries2-flex-container">
+
+        <!-- Some countries, most notably Russia, have an enormous amount of provinces that cause styling and display issues if displayed in-browser via this list, causing users to have to scroll to the right. While iterating through the country data array, we do not wish to output the 'provinces' data, and provinces are displayed separately below in order to control the styling of that section.  -->
+        <ul>
+            <% for (i = 0; i < countryData2.length; i++) { %>
+            <% if (countryData2[i] === countryData2[6]) { %>
+            <% continue; %>
+            <% } %>
+            <!-- Here, the 'items' act as data headings, and they themselves are part of an array found in app.js. It was my way to display the titles of otherwise dynamic data -->
+            <li class="country-data-list-2"> <%= items[i] %> <%= countryData2[i] %> </li>
+            <% } %>
+        </ul>
+
+        <!-- Wiki link for each chosen country that can be accessed by users -->
+        <a href="<%= countryLink %>" class="wiki"> Wiki for <%= countryUpperCase %> </a>
+
+        <!-- Provinces section -->
+        <h3 class="provinces-header">Provinces</h3>
+        <!-- Node data objects contain no spaces, so join is used for user readability purposes -->
+        <span class="provinces"> <%= countryData2[6].join(", ") %> </span>
+
+        <!-- Search via select menu dropdown. JS used to loop through all available countries in node package object and insert them into the list -->
+        <form action="/extras" method="POST" class="form-margin">
+            <span class="search-again-text">Search Again</span>
+            <select class="selectpicker align-dropdown" data-live-search="true" name="userInput2" required autofocus>
+                <!-- npm package contains unexplained 'undefined' data in json: skip these with loop 'continue' if undefined data is found -->
+                <% for (i = 0; i < allCountriesList2.length; i++) { %>
+                <% if (allCountriesList2[i].name === undefined) { %>
+                <% continue; %>
+                <% } %>
+                <!-- Output the name of all countries within node package -->
+                <option value="<%= allCountriesList2[i].name %>"> <%= allCountriesList2[i].name %> </option>
+                <% } %>
+            </select>
+            <button class="go-btn"><span>Discover</span></button>
+        </form>
+
+        <footer>
+            Copyright &copy; Earth Interest
+        </footer>
+
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
+
+</body>
+
+</html>

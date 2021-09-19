@@ -1,0 +1,69 @@
+<!-- Page is rendered as home route on first request -->
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<!-- This app uses bootstrap-select to help style the dropdowns -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Earth Interest</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gurajada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/svg/earth-realistic.png">
+</head>
+
+<body class="bg-home">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="/">
+                <img src="images/svg/earth-realistic.png" class="brand" alt="Earth icon">
+            </a>
+            <h1 class="nav-title">Earth Interest</h1>
+        </div>
+        <div class="nav-right">
+            <a href="/" class="nav-links">Home</a>
+            <a href="/extras" class="nav-links">More Data</a>
+        </div>
+    </nav>
+
+    <!-- Main body with rotating earth image -->
+    <section class="flex-container">
+
+        <h1>Earth Interest</h1>
+        <h3>A country - in a click!</h3>
+
+        <img src="images/svg/earth-realistic.png" class="main-img" alt="Earth icon">
+
+        <p>Use this page to see a country's capital cities, flag, what it's famous for &amp; more!</p>
+
+        <!-- Search via select menu dropdown. JS used to loop through all available countries in node package object and insert them into the list -->
+        <form action="/" method="POST">
+            <select class="selectpicker" data-live-search="true" name="userInput" required autofocus>
+               
+                <option value="<%= random %>">random</option>
+                <% for (i = 0; i < allCountries.length; i++) { %>
+                <option value="<%= allCountries[i] %>"> <%= allCountries[i] %> </option>
+                <% } %>
+            </select>
+            <button class="go-btn"><span>Discover</span></button>
+        </form>
+
+        <footer>
+            Copyright &copy; Earth Interest
+        </footer>
+
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
+
+</body>
+
+</html>
