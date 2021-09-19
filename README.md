@@ -5,7 +5,7 @@ To load the file, just head to localhost/3000 in your browser with your express.
 
 Run app.js and then load the html pages.
 
-Uses bootstrap-select to style the dropdown menus.
+Uses 'bootstrap-select' to style the dropdown menus.
 
 I discovered some errors in the node packages I used, such as undefined data in its arrays. 
 I have looped through these and skipped them via 'continue', so as not to display "undefined" in the country select array.
