@@ -45,7 +45,6 @@
         <!-- Search via select menu dropdown. JS used to loop through all available countries in node package object and insert them into the list -->
         <form action="/" method="POST">
             <select class="selectpicker" data-live-search="true" name="userInput" required autofocus>
-               
                 <option value="<%= random %>">random</option>
                 <% for (i = 0; i < allCountries.length; i++) { %>
                 <option value="<%= allCountries[i] %>"> <%= allCountries[i] %> </option>
